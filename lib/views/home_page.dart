@@ -1,3 +1,4 @@
+import 'package:court_booking/views/package_duration.dart';
 import 'package:court_booking/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
@@ -9,7 +10,9 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        backgroundColor: Colors.white,
         automaticallyImplyLeading: false,
         title: Text(
           "Sports Courts",
@@ -48,30 +51,32 @@ class HomePage extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: 10,),
+                        SizedBox(height: 10),
                         Row(
                           children: [
-                            Text("Futsal Court A", style: GoogleFonts.poppins(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
+                            Text(
+                              "Futsal Court A",
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
                             ),
+                            Spacer(),
+                            Icon(Icons.star, color: Colors.amber),
+                            Text(
+                              "4.5",
+                              style: GoogleFonts.poppins(fontSize: 16),
                             ),
-                        Spacer(),
-                        Icon(Icons.star, color: Colors.amber,),
-                        Text("4.5", style: GoogleFonts.poppins(
-                          fontSize: 16,
-                        ),
-                        ),
                           ],
                         ),
-                        SizedBox(height: 5,),
+                        SizedBox(height: 5),
                         Text(
                           "Indoor • Air Conditioner",
                           style: GoogleFonts.poppins(
-                            color: fromCssColor("#4B5663")
+                            color: fromCssColor("#4B5663"),
                           ),
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(height: 10),
                         Row(
                           children: [
                             Text(
@@ -83,16 +88,23 @@ class HomePage extends StatelessWidget {
                             ),
                             Spacer(),
                             CustomButton(
-                              textButton: "Submit", 
-                              onPressed: () {},
+                              textButton: "Submit",
+                              onPressed: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => PackageDuration(),
+                                  ),
+                                );
+                              },
                               heightButton: 30,
                               widthButton: 100,
                               titleSize: 12,
-                              radius: 8,
-                              ),
+                              radius: 3,
+                            ),
                           ],
                         ),
-                        SizedBox(height: 15,),
+                        // SizedBox(height: 10,),
                       ],
                     ),
                   ),
