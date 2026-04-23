@@ -1,34 +1,32 @@
 import 'package:court_booking/views/home_page.dart';
-import 'package:court_booking/views/payment_method.dart';
 import 'package:court_booking/widgets/button.dart';
 import 'package:flutter/material.dart';
 import 'package:from_css_color/from_css_color.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class OrderSummary extends StatelessWidget {
-  const OrderSummary({super.key});
+class BookingReceipt extends StatelessWidget {
+  const BookingReceipt({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Text(
-          "Order Summary",
-          style: GoogleFonts.poppins(fontWeight: FontWeight.w600),
-        ),
-        centerTitle: true,
-        elevation: 2,
-        shadowColor: Colors.black,
-        surfaceTintColor: Colors.transparent,
-      ),
-      body: Padding(
-        padding: EdgeInsetsGeometry.symmetric(vertical: 20, horizontal: 30),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
+      body: Padding(padding: 
+      EdgeInsetsGeometry.symmetric(vertical: 20, horizontal: 30),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            foregroundColor: Colors.black,
+            backgroundColor: Colors.grey.shade200,
+            radius: 30,
+            child: Icon(Icons.check, size: 28,),
+          ),
+          Text("Booking Successful"),
+          Text("Your court has been reserved successfully"),
+          SizedBox(height: 30,),
+          Container(
               width: double.infinity,
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
@@ -173,52 +171,13 @@ class OrderSummary extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 40),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.all(15),
-              decoration: BoxDecoration(
-                color: Colors.grey.shade100,
-                borderRadius: BorderRadius.circular(20),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Row(
-                    children: [
-                      Icon(Icons.info),
-                      SizedBox(width: 5),
-                      Text(
-                        "Booking Policy",
-                        style: GoogleFonts.poppins(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Padding(
-                    padding: EdgeInsetsGeometry.only(left: 30),
-                    child: Text(
-                      "Free Concellation up to 5 hours before your booking time. Equipment rental available on site.",
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Spacer(),
-            CustomButton(
-              textButton: "Choose Payment Method  ➜",
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => PaymentMethod()),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+            CustomButton(textButton: "Download Receipt", onPressed: (){}),
+            CustomButton(textButton: "Back to Home", onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
+            },
+            )
+        ],
+      ),),
     );
   }
 }
